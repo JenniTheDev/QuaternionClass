@@ -2,7 +2,9 @@
 // ========================================================================================================
 // quaternion_T.h
 // ========================================================================================================
-// Jenni
+// Jenni Felton
+
+// Can also be found at https://github.com/JenniTheDev/QuaternionClass
 #ifndef quaternion_T_h
 #define quaternion_T_h
 #include "vector_3dT.h"
