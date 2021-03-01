@@ -21,6 +21,15 @@ typedef vector3d<int>    vector3I;
 typedef vector3d<long>   vector3L;
 typedef vector3D vec3;
 
+// trying to get rid of my to_string error
+namespace patch{
+    template < typename T > std::string to_string(const T& n)
+    {
+        std::ostringstream stm;
+        stm << n;
+        return stm.str();
+    }
+}
 
 template <typename T>
 class vector3d {  // class that serves as both vectors and points
@@ -58,7 +67,7 @@ public:
     }
     //---------------------------------------------------------------------
     friend vector3d<T> operator+(T k, const vector3d<T>& v) {
-        return vector3d<T>(std::to_string(k) + "+" + v.name_, v.dims_, { k + v[0], k + v[1], k + v[2], 0 });
+        return vector3d<T>(patch::to_string(k) + "+" + v.name_, v.dims_, { k + v[0], k + v[1], k + v[2], 0 });
     }
     friend vector3d<T> operator+(const vector3d<T>& v, T k) { return k + v; }
     //---------------------------------------------------------------------
